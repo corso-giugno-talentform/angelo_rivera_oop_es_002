@@ -2,15 +2,19 @@
 
 class Vertebrates
 {
-    public function iAm()
+    protected function iAm()
     {
         echo "Sono un animale Vertebrato \n\n";
+    }
+    public function __construct()
+    {
+        $this->iAm();
     }
 }
 
 class WarmBlooded extends Vertebrates
 {
-    public function iAm()
+    protected  function iAm()
     {
         parent::iAm();
         echo "Sono un animale a Sangue Caldo \n\n";
@@ -19,7 +23,7 @@ class WarmBlooded extends Vertebrates
 
 class ColdBlooded extends Vertebrates
 {
-    public function iAm()
+    protected function iAm()
     {
         parent::iAm();
         echo "Sono un animale a Sangue Freddo \n\n";
@@ -27,7 +31,7 @@ class ColdBlooded extends Vertebrates
 }
 class Mammals extends WarmBlooded
 {
-    public function iAm()
+    protected function iAm()
     {
         parent::iAm();
         echo "Sono un mammifero \n\n";
@@ -36,7 +40,7 @@ class Mammals extends WarmBlooded
 
 class Birds extends WarmBlooded
 {
-    public function iAm()
+    protected function iAm()
     {
         parent::iAm();
         echo "Sono un uccello \n\n";
@@ -44,7 +48,7 @@ class Birds extends WarmBlooded
 }
 class Reptiles extends ColdBlooded
 {
-    public function iAm()
+    protected function iAm()
     {
         parent::iAm();
         echo "Sono un rettile \n\n";
@@ -52,7 +56,7 @@ class Reptiles extends ColdBlooded
 }
 class Amphibians extends ColdBlooded
 {
-    public function iAm()
+    protected function iAm()
     {
         parent::iAm();
         echo "Sono un anfibio \n\n";
@@ -61,7 +65,7 @@ class Amphibians extends ColdBlooded
 
 class Fish extends ColdBlooded
 {
-    public function iAm()
+    protected function iAm()
     {
         parent::iAm();
         echo "Splash! \n\n";
@@ -78,6 +82,6 @@ $rana = new Amphibians();
 $vertebrates = [$magikarp, $serpente, $leone, $pappagallo, $rana];
 
 foreach ($vertebrates as $vertebrate) {
-    $vertebrate->iAm();
+    $vertebrate->__construct();
     echo "==================\n\n";
 }
